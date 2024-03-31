@@ -40,9 +40,9 @@ export const Signin = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
-      window.location.reload();
-      setMsg(response.data.message);
-    } catch (e) {}
+    } catch (e) {
+      setMsg("Invalid Credentials try again");
+    }
   }
 
   return (
@@ -56,10 +56,15 @@ export const Signin = () => {
             <h1 className="text-white text-center text-5xl font-bold">
               Signin
             </h1>
-            {msg ? <div>{msg}</div> : null}
             <p className="text-white text-center mt-2 text-xs">
               Enter your credentials to Signin
             </p>
+            {msg ? (
+              <div className=" font-light text-center mt-2 text-red-500">
+                {msg}
+              </div>
+            ) : null}
+
             <div className="mt-auto mb-auto flex flex-col justify-center items-center">
               <LabelledInput
                 className="w-[300px] text-xl  p-2 rounded-md"

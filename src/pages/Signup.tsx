@@ -38,9 +38,11 @@ export const Signup = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
-      setMsg(response.data.message);
-    } catch (e) {}
-    console.log("Hello");
+    } catch (e) {
+      setMsg(
+        "Bio should be 10 characters long and password should be 8 characters long"
+      );
+    }
   }
 
   return (
@@ -54,7 +56,11 @@ export const Signup = () => {
           <p className="text-white text-center mt-2 text-xs">
             Enter your credentials to Signin
           </p>
-          {msg ? <div>{msg}</div> : null}
+          {msg ? (
+            <div className=" font-light text-center mt-2 text-red-500 text-sm">
+              {msg}
+            </div>
+          ) : null}
           <div className="mt-auto mb-auto flex flex-col justify-center items-center">
             <LabelledInput
               className="w-[300px] text-xl  p-2 rounded-md"
