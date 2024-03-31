@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 420px) {
+  #blogcard {
+    width: 330px;
+    height: auto;
+  }
+
+  #blogcardtitle {
+    font-size: larger;
+  }
+
+  #blogcard-content {
+    height: auto;
+  }
+
+  #article {
+    display: grid;
+    grid-template-rows: 2;
+    overflow: auto;
+    height: auto;
+  }
+
+  #author-comp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -70px;
+  }
+
+  #author-name {
+    font-size: x-large;
+  }
+
+  #author-bio {
+    width: 300px;
+  }
+}
