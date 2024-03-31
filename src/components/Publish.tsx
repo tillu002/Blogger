@@ -31,7 +31,7 @@ export const Publish = () => {
     <div>
       <AppBar />
       <div id="publish" className="max-w-2xl mx-auto mt-16 flex flex-col ">
-        <label className="block mb-2 text-sm font-medium text-slate-100 dark:text-slate-700">
+        <label className="block mb-2 text-sm font-medium text-slate-100 dark:text-slate-700 ml-3">
           Wanna Say something..?
         </label>
         <textarea

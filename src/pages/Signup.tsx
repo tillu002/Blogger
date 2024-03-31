@@ -17,6 +17,7 @@ export const Signup = () => {
     name: "",
     bio: "",
   });
+  const [msg, setMsg] = useState("");
 
   useEffect(() => {
     const auth = localStorage.getItem("token");
@@ -37,6 +38,7 @@ export const Signup = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
+      setMsg(response.data.message);
     } catch (e) {}
     console.log("Hello");
   }
@@ -52,6 +54,7 @@ export const Signup = () => {
           <p className="text-white text-center mt-2 text-xs">
             Enter your credentials to Signin
           </p>
+          {msg ? <div>{msg}</div> : null}
           <div className="mt-auto mb-auto flex flex-col justify-center items-center">
             <LabelledInput
               className="w-[300px] text-xl  p-2 rounded-md"

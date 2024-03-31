@@ -22,6 +22,10 @@
   background: #555;
 }
 
+#deletebutton {
+  background-color: red;
+}
+
 @media (max-width: 420px) {
   #blogcard {
     width: 330px;
@@ -57,5 +61,77 @@
 
   #author-bio {
     width: 300px;
+  }
+
+  #deletebutton {
+    width: 70px;
+  }
+
+  #editbutton {
+    width: 70px;
+  }
+
+  #publish-button {
+    width: 150px;
+    translate: -60px;
+    height: 50px;
+  }
+
+  #edited-button {
+    width: 150px;
+    translate: -70px;
+    height: 50px;
+  }
+
+  #publish-title {
+    height: 200px;
+    width: 365px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  #edited-title {
+    max-height: auto;
+    overflow-y: scroll;
+    max-width: 340px;
+  }
+
+  #edited-content {
+    height: auto;
+    overflow-y: scroll;
+    max-width: 340px;
+  }
+
+  #publish-content {
+    width: 365px;
+    height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  #edit-blog {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #myblogs {
+    display: flex;
+    height: screen;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+
+  #editbutton {
+    translate: -325px;
+
+    /* transform: translate(-325px); */
+  }
+
+  #deletebutton {
+    translate: -325px;
   }
 }

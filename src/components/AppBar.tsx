@@ -57,7 +57,7 @@ export function AppBar() {
 
 function ExtendAvatar() {
   return (
-    <div className="flex flex-col bg-slate-700 w-[150px] h-[200px] overflow-auto items-center translate-x-[-100px] translate-y-[30px] mb-1">
+    <div className="flex flex-col bg-slate-700 w-[150px] h-[200px] overflow-auto items-center translate-x-[-100px] translate-y-[30px] mb-1 z-50">
       <ProfileComponents />
     </div>
   );

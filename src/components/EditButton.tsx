@@ -3,6 +3,7 @@ export function EditButton({ onClick }: any) {
     <div>
       <button
         onClick={onClick}
+        id="editbutton"
         className="relative cursor-pointer opacity-90 hover:opacity-100 transition-opacity p-[2px] bg-black rounded-[16px] bg-gradient-to-t from-[#111] to-[#dc98fd] active:scale-85 translate-x-[600px] translate-y-[-200px]"
       >
         <span className="w-full h-full flex items-center gap-2 px-2 py-2 bg-[#555] text-[#f1d5fe] rounded-[14px] bg-gradient-to-t from-[#a62ce2] to-[#c045fc]">

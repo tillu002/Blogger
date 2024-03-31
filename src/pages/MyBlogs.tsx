@@ -25,10 +25,13 @@ export const MyBlogs = () => {
   return (
     <div>
       <AppBar />
-      <div className="flex flex-col justify-center items-center mt-11">
+      <div className="flex flex-col justify-center items-center mt-4">
         <BlogsButton />
 
-        <div className="m:w-[600px] w-[800px] max-h-[600px] overflow-auto p-10 bg-slate-300 section">
+        <div
+          id="myblogs"
+          className="m:w-[600px] w-[800px] overflow-auto p-10  section ml-3 flex flex-col justify-center items-center"
+        >
           {myBlogs != null ? (
             myBlogs.map((blog) => (
               <div key={blog.id}>
@@ -92,7 +95,7 @@ function BlogsButton() {
         onClick={() => {
           window.location.href = window.location.href;
         }}
-        className="bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-8 rounded-full animate-pulse mb-5 text-lg"
+        className="bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-8 rounded-full animate-pulse mb-5 text-lg z-0"
       >
         Your Blogs
       </button>
