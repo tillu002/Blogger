@@ -39,6 +39,7 @@ export const Signin = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
+      window.location.reload();
     } catch (e) {}
   }
 
