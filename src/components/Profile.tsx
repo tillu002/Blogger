@@ -8,7 +8,7 @@ export const ProfileComponents = () => {
   const navigate = useNavigate();
   function handleLogout() {
     localStorage.clear();
-    navigate("/signin");
+    navigate("/");
   }
 
   return (
