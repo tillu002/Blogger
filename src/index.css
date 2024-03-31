@@ -47,6 +47,17 @@
     height: auto;
   }
 
+  #blogger-icon {
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  #blogger-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   #author-comp {
     display: flex;
     flex-direction: column;

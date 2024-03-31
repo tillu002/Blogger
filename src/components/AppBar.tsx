@@ -38,13 +38,13 @@ export function AppBar() {
         isClicked ? "py-3" : "py-3"
       }`}
     >
-      <div className="flex">
-        <div className="text-3xl">Blogger</div>
+      <div className="flex" id="blogger-title">
         <img
           src="../public/icons8-blogger-100.png"
-          className="w-[45px] ml-2"
+          className="w-[45px]"
           id="blogger-icon"
         />
+        <div className="text-3xl ml-2">Blogger</div>
       </div>
       <div className="flex gap-3 items-center justify-center">
         <Link to={"/publish"}>
