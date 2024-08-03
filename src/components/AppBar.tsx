@@ -40,7 +40,7 @@ export function AppBar() {
     >
       <div className="flex" id="blogger-title">
         <img
-          src="../public/icons8-blogger-100.png"
+          src="icons8-blogger-100.png"
           className="w-[45px]"
           id="blogger-icon"
         />

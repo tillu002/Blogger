@@ -1,5 +1,4 @@
 import { SigninInput } from "@tillu002/medium-common";
-import { Design } from "../components/Design";
 import { LabelledInput } from "../components/Input";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +15,8 @@ export const Signin = () => {
     password: "",
   });
   const [msg, setMsg] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isClickable, setIsClickable] = useState(true);
 
   useEffect(() => {
     const auth = localStorage.getItem("token");
@@ -29,45 +30,44 @@ export const Signin = () => {
   const setUid = useSetRecoilState(userIdAtom);
 
   async function sendRequest() {
+    setIsLoggedIn((prev) => !prev);
     try {
       const response = await axios.post(
         `${BACKEND_URL}/api/v1/user/signin`,
         inputs
       );
 
+
       const jwt = response.data.token;
       setUid(response.data.uid);
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
+      setIsLoggedIn(true);
     } catch (e) {
       setMsg("Invalid Credentials try again");
+      setIsClickable(true);
     }
   }
 
   return (
-    <div className="w-full h-screen">
-      <div className="w-full h-screen bg-cover bg-center bg-bgabs">
-        <div className="z-1">
-          <Design />
-        </div>
-        <div className="w-full h-screen grid place-items-center z-20 opacity-100 z-50">
-          <div className="w-[400px] h-[500px] bg-black flex flex-col">
-            <h1 className="text-white text-center text-5xl font-bold">
+      <div className="w-full h-screen flex items-center justify-center bg-cover bg-center">
+          <div className="w-[400px] h-[550px] border-2 border-black flex flex-col justify-center items-center rounded-md">
+            <h1 className="text-black text-center text-5xl font-bold mt-6">
               Signin
             </h1>
-            <p className="text-white text-center mt-2 text-xs">
+            <p className="text-slate-600 text-center mt-2 text-xs">
               Enter your credentials to Signin
             </p>
             {msg ? (
-              <div className=" font-light text-center mt-2 text-red-500">
+              <div className="font-semibold text-center mt-2 text-red-500">
                 {msg}
               </div>
             ) : null}
 
             <div className="mt-auto mb-auto flex flex-col justify-center items-center">
               <LabelledInput
-                className="w-[300px] text-xl  p-2 rounded-md"
+                className="w-[300px] text-xl p-2 rounded-md text-black border-[1px] border-black"
                 label="Email"
                 type="email"
                 placeholder="pavansohith@example.com"
@@ -77,7 +77,7 @@ export const Signin = () => {
               />
 
               <LabelledInput
-                className="w-[300px] text-xl  p-2 rounded-md"
+                className="w-[300px] text-xl p-2 rounded-md border-[1px] border-black"
                 label="Password"
                 type="password"
                 onChange={(e) => {
@@ -85,8 +85,8 @@ export const Signin = () => {
                 }}
               />
 
-              <SignButton onClick={sendRequest} type="Signin" />
-              <p className="text-white mt-3">
+              <SignButton onClick={sendRequest} type="Signin" isLoggedIn={isLoggedIn} isClickable={isClickable}/>
+              <p className="text-slate-900 mt-4">
                 New to Blogger?
                 <Link className="underline" to={"/signup"}>
                   Signup
@@ -95,7 +95,5 @@ export const Signin = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };

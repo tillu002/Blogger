@@ -17,13 +17,13 @@ export function LabelledInput({
 }: LabelledInputType) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-white  text-2xl">{label}</label>
+      <label className="text-black text-2xl">{label}</label>
       <input
         onChange={onChange}
         placeholder={placeholder}
         type={type}
         required
-        className={className}
+        className={`${className} text-black`}
       />
     </div>
   );

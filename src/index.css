@@ -2,28 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 #deletebutton {
   background-color: red;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  height: auto;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #ff7243;
+  --sb-size: 12px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 2px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                    var(--sb-track-color);
+  }
 }
 
 @media (max-width: 480px) {
@@ -145,4 +161,291 @@
   #deletebutton {
     translate: -325px;
   }
+}
+
+
+/*Signin Button */
+
+.buttonSignin {
+  font: inherit;
+  background-color: #f0f0f0;
+  border: 0;
+  color: #242424;
+  border-radius: 0.5em;
+  font-size: 1.2rem;
+  padding: 0.345em 0.5em;
+  font-weight: 600;
+  text-shadow: 0 0.0625em 0 #fff;
+  box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+    0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+    0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+  transition: 0.15s ease;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-color: #242424;
+}
+.buttonSignin:active {
+  translate: 0 0.225em;
+  box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+
+/* Loader Box */
+
+.loader {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 35px;
+  height: 3px;
+  background: #00000050;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #726f6f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+
+  0%,
+    100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+/* Edit Button */
+
+.BtnEdit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90px;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: rgb(38, 33, 41);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0px rgb(186, 182, 189);
+  transition-duration: .3s;
+}
+
+.svgEdit {
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  fill: white;
+  transition-duration: .3s;
+}
+
+.BtnEdit:hover {
+  color: transparent;
+}
+
+.BtnEdit:hover svg {
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: .3s;
+}
+
+.BtnEdit:active {
+  transform: translate(3px , 3px);
+  transition-duration: .3s;
+  box-shadow: 2px 2px 0px rgb(140, 32, 212);
+}
+
+@media only screen and (max-width: 600px) {
+  .BtnEdit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50px;
+    height: 35px;
+    border: none;
+    padding: 0px 5px;
+    background-color: rgb(38, 33, 41);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0px rgb(186, 182, 189);
+    transition-duration: .3s;
+  }
+
+  .svgEdit {
+    width: 12px;
+    position: absolute;
+    right: 0;
+    margin-right: 19px;
+    fill: white;
+    transition-duration: .3s;
+  }
+}
+
+/* Delete Button */
+
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 12px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+
+
+/* PopUp message */
+
+/* From Uiverse.io by vinodjangid07 */ 
+.card {
+  width: 200px;
+  height: fit-content;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
+}
+.card-content {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(27, 27, 27);
+}
+.card-description {
+  font-weight: 100;
+  color: rgb(102, 102, 102);
+}
+.card-button-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.card-button {
+  width: 50%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary {
+  background-color: rgb(255, 114, 109);
+  color: white;
+}
+.primary:hover {
+  background-color: rgb(255, 73, 66);
+}
+.secondary {
+  background-color: #ddd;
+}
+.secondary:hover {
+  background-color: rgb(197, 197, 197);
+}
+.exit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.exit-button:hover svg {
+  fill: black;
+}
+.exit-button svg {
+  fill: rgb(175, 175, 175);
 }

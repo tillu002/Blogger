@@ -20,7 +20,7 @@ export function BlogCard({
     <Link to={`/blog/${route}`}>
       <div
         id="blogcard"
-        className="flex flex-col bg-slate-200 w-[700px] overflow-hidden h-auto justify-center pl-3 border-b border-slate-400 pt-3 mb-3 pb-3 cursor-pointer md:w-[450px] l:w-[620px] sm:w-[300px] sm:ml-40 s:ml-4 sm:h-auto"
+        className="flex flex-col bg-slate-200 w-[700px] overflow-hidden h-auto justify-center pl-3 border-b border-slate-400 pt-3 mb-3 pb-3 cursor-pointer md:w-[450px] l:w-[620px] sm:w-[300px] sm:ml-40 s:ml-4 sm:h-auto relative"
       >
         <div className="flex overflow-auto items-center gap-2 s:gap-1 s:flex-col">
           <div className="flex items-center gap-2 s:gap-2">

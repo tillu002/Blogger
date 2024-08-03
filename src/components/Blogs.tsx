@@ -28,7 +28,7 @@ export function Blogs() {
             route={String(blog.id)}
           />
         ))}
-        <Skeleton />
+              {loading ? <Skeleton />: <article  className="text-lg mb-3 font-semibold">You're upto date</article>}
       </div>
     </div>
   );

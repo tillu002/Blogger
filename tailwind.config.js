@@ -21,7 +21,7 @@ export default {
     },
     backgroundImage: {
       bgabs: "url('/pexels-asim-alnamat-32997.jpg')",
-      bgblogger: "url('icons8-blogger-100.png')",
+      bgblogger: "url('/icons8-blogger-100.png')",
     },
   },
   plugins: [],
