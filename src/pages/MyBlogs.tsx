@@ -1,7 +1,6 @@
 import { useGetblog } from "../hooks";
 import { Skeleton } from "../components/Skeleton";
 import { BlogCard } from "../components/BlogCard";
-
 import { AppBar } from "../components/AppBar";
 import { DeleteBlog } from '../components/DeleteButton';
 import { BACKEND_URL } from "../config";

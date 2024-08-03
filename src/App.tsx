@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes, redirect } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Signup } from "./pages/Signup";
 import { Signin } from "./pages/Signin";
 import { Blogs } from "./components/Blogs";
