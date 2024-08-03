@@ -1,11 +1,11 @@
-export function SignButton({ onClick, type, isLoggedIn, isClickable }: Sign) {
+export function SignButton({ onClick, type, isLoggedIn}: Sign) {
 
   
   return (
     <div>
       <button
         onClick={onClick}
-        className={`buttonSignin ${isClickable ? "" : "hidden"}`}
+        className={`buttonSignin`}
         type="button"
       >
         
@@ -23,5 +23,4 @@ interface Sign {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type: string;
   isLoggedIn: boolean;
-  isClickable: boolean;
 }

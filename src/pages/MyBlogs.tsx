@@ -8,15 +8,12 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 import { EditButton } from "../components/EditButton";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { PopUp } from "../components/PopUp";
 
 export const MyBlogs = () => {
   // const { uid = useRecoilValue(userIdAtom) } = useParams();
   const { loading, myBlogs } = useGetblog();
   const navigate = useNavigate();
 
-  const [msg, setMsg] = useState(false);
 
   if (loading) {
     return (
@@ -58,7 +55,6 @@ export const MyBlogs = () => {
                 <article className="absolute bottom-4 right-2">
                 <DeleteBlog
                   onClick={async () => {
-                      setMsg(true);
                     const res = await axios.delete(
                       `${BACKEND_URL}/api/v1/blog/myBlogs/${blog.id}`,
                       {

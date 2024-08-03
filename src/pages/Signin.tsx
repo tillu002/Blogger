@@ -16,7 +16,6 @@ export const Signin = () => {
   });
   const [msg, setMsg] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isClickable, setIsClickable] = useState(true);
 
   useEffect(() => {
     const auth = localStorage.getItem("token");
@@ -46,7 +45,6 @@ export const Signin = () => {
       setIsLoggedIn(true);
     } catch (e) {
       setMsg("Invalid Credentials try again");
-      setIsClickable(true);
     }
   }
 
@@ -85,7 +83,7 @@ export const Signin = () => {
                 }}
               />
 
-              <SignButton onClick={sendRequest} type="Signin" isLoggedIn={isLoggedIn} isClickable={isClickable}/>
+              <SignButton onClick={sendRequest} type="Signin" isLoggedIn={isLoggedIn} />
               <p className="text-slate-900 mt-4">
                 New to Blogger?
                 <Link className="underline" to={"/signup"}>

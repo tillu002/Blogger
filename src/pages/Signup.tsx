@@ -18,6 +18,7 @@ export const Signup = () => {
     bio: "",
   });
   const [msg, setMsg] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const auth = localStorage.getItem("token");
@@ -28,6 +29,7 @@ export const Signup = () => {
   const setUid = useSetRecoilState(userIdAtom);
 
   async function sendRequest() {
+    setIsLoggedIn((prev) => !prev);
     try {
       const response = await axios.post(
         `${BACKEND_URL}/api/v1/user/signup`,
@@ -38,6 +40,7 @@ export const Signup = () => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("uid", response.data.uid);
       navigate("/blogs");
+      setIsLoggedIn(true);
     } catch (e) {
       setMsg(
         "Bio should be 10 characters long and password should be 8 characters long"
@@ -98,7 +101,7 @@ export const Signup = () => {
               }}
             />
 
-            <SignButton onClick={sendRequest} type="Signup" />
+            <SignButton onClick={sendRequest} type="Signup" isLoggedIn={isLoggedIn} />
             <p className="text-white mt-3">
               Already have an accoount?
               <Link className="underline" to={"/"}>
