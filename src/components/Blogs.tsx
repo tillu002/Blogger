@@ -18,7 +18,7 @@ export function Blogs() {
   return (
     <div>
       <AppBar />
-      <div className="flex flex-col justify-center items-center l:mt-8 z-20">
+      <div className="flex flex-col justify-center items-center l:mt-8 z-20 mr-3">
         {blogs.map((blog) => (
           <BlogCard
             title={blog.title}

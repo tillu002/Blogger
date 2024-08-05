@@ -34,7 +34,7 @@ export function AppBar() {
   }
   return (
     <div
-      className={`flex sticky top-0 z-50 opacity-95 bg-white  px-10 justify-between border-b border-blue-200 shadow-md shadow-slate-400 items-center mb-3 l:px-5 sm:ml-3 place-items-center ${
+      className={`flex sticky top-0 z-50 opacity-95 bg-white  px-10 justify-between border-b border-blue-200 shadow-md shadow-slate-400 items-center mb-3 l:px-5 place-items-center ${
         isClicked ? "py-3" : "py-3"
       }`}
     >

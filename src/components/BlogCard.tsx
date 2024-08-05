@@ -40,7 +40,7 @@ export function BlogCard({
         <div>
           <h1
             id="blogcardtitle"
-            className="font-bold text-3xl font-[Urbanist] pt-1 l:text-2xl md:text-2xl sm:text-xl s:text-base"
+            className="font-bold text-3xl font-[Urbanist] pt-1 l:text-2xl md:text-2xl sm:text-2xl"
           >
             {title.length > 50 ? content.slice(0, 70) + "..." : title}
           </h1>
