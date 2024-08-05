@@ -1,5 +1,5 @@
+
 import { SignupInput } from "@tillu002/medium-common";
-import { Design } from "../components/Design";
 import { LabelledInput } from "../components/Input";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { BACKEND_URL } from "../config";
 import { useSetRecoilState } from "recoil";
 import { userIdAtom } from "../atomes";
 import { SignButton } from "../components/SignButton";
+import { PencilAnimation } from "../components/Utils";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -49,43 +50,47 @@ export const Signup = () => {
   }
 
   return (
-    <div className=" h-screen bg-cover bg-center bg-bgabs">
-      <div className="z-1">
-        <Design />
-      </div>
-      <div className="w-full h-screen grid place-items-center z-20 opacity-100">
-        <div className="w-[400px] h-[600px] bg-black flex flex-col">
-          <h1 className="text-white text-center text-5xl font-bold">Signup</h1>
-          <p className="text-white text-center mt-2 text-xs">
-            Enter your credentials to Signin
-          </p>
-          {msg ? (
-            <div className=" font-light text-center mt-2 text-red-500 text-sm">
-              {msg}
-            </div>
-          ) : null}
-          <div className="mt-auto mb-auto flex flex-col justify-center items-center">
-            <LabelledInput
-              className="w-[300px] text-xl  p-2 rounded-md"
-              label="Username"
-              placeholder="e.g: Pavan Sohith"
+    <div className="w-full h-full flex justify-center items-center flex-col" >
+      <article>
+      <h1 className="text-center text-5xl mt-4 flex items-center gap-2 justify-center">Blogger <PencilAnimation /></h1>
+      <p className="text-slate-800 text-center mt-4 items-center flex gap-2"> <hr className="bg-black w-10 h-1"/>Speak Your <strong>Mind.</strong> Shape the World.</p>
+      </article>
+    <div className="w-full h-screen flex items-center justify-center bg-cover bg-center mt-[-50px]">
+    <div className="w-[400px] h-[600px] sm:w-[350px] border-2 border-black flex flex-col justify-center items-center rounded-md">
+      <h1 className="text-black text-center text-5xl font-bold mt-6">
+        Signup
+      </h1>
+      <p className="text-slate-600 text-center mt-2 text-xs">
+        Enter your credentials to Signup
+      </p>
+      {msg ? (
+        <div className="font-semibold text-center mt-2 text-red-500">
+          {msg}
+        </div>
+      ) : null}
+
+      <div className="mt-auto mb-auto flex flex-col justify-center items-center">
+      <LabelledInput
+              className="w-[300px] text-xl  p-2 rounded-md border-2 border-black"
+              label="Username👤"
+              placeholder="e.g: Pavan Tillu"
               onChange={(e) => {
                 setInputs({ ...inputs, name: e.target.value });
               }}
             />
             <LabelledInput
-              className="w-[300px] text-xl  p-2 rounded-md"
-              label="Email"
+              className="w-[300px] text-xl  p-2 rounded-md border-2 border-black"
+              label="Email✉️"
               type="email"
-              placeholder="pavansohith@example.com"
+              placeholder="abc@example.com"
               onChange={(e) => {
                 setInputs({ ...inputs, username: e.target.value });
               }}
             />
 
             <LabelledInput
-              className="w-[300px] text-xl  p-2 rounded-md"
-              label="Password"
+              className="w-[300px] text-xl  p-2 rounded-md border-2 border-black"
+              label="Password🔒"
               type="password"
               onChange={(e) => {
                 setInputs({ ...inputs, password: e.target.value });
@@ -93,16 +98,15 @@ export const Signup = () => {
             />
 
             <LabelledInput
-              className="w-[300px] text-xl  p-2 rounded-md"
-              label="Bio....."
+              className="w-[300px] text-xl  p-2 rounded-md text-black border-2 border-black"
+              label="Bio.....📝"
               type="text"
               onChange={(e) => {
                 setInputs({ ...inputs, bio: e.target.value });
               }}
             />
-
             <SignButton onClick={sendRequest} type="Signup" isLoggedIn={isLoggedIn} />
-            <p className="text-white mt-3">
+            <p className="text-black mt-3">
               Already have an accoount?
               <Link className="underline" to={"/"}>
                 Signin
@@ -111,6 +115,6 @@ export const Signup = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };

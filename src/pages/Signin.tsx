@@ -7,6 +7,7 @@ import { BACKEND_URL } from "../config";
 import { useSetRecoilState } from "recoil";
 import { userIdAtom } from "../atomes";
 import { SignButton } from "../components/SignButton";
+import { PencilAnimation } from "../components/Utils";
 
 export const Signin = () => {
   const navigate = useNavigate();
@@ -49,8 +50,13 @@ export const Signin = () => {
   }
 
   return (
-      <div className="w-full h-screen flex items-center justify-center bg-cover bg-center">
-          <div className="w-[400px] h-[550px] border-2 border-black flex flex-col justify-center items-center rounded-md">
+    <div className="w-full h-full flex justify-center items-center flex-col" >
+      <article>
+      <h1 className="text-center text-5xl mt-4 flex items-center gap-2 justify-center">Blogger <PencilAnimation /></h1>
+      <p className="text-slate-800 text-center mt-4 items-center flex gap-2"> <hr className="bg-black w-10 h-1"/>Speak Your <strong>Mind.</strong> Shape the World.</p>
+      </article>
+      <div className="w-full h-screen flex items-center justify-center bg-cover bg-center mt-[-100px]">
+          <div className="w-[400px] h-[450px] sm:w-[350px] sm:h-[430px] border-2 border-black flex flex-col justify-center items-center rounded-md">
             <h1 className="text-black text-center text-5xl font-bold mt-6">
               Signin
             </h1>
@@ -66,7 +72,7 @@ export const Signin = () => {
             <div className="mt-auto mb-auto flex flex-col justify-center items-center">
               <LabelledInput
                 className="w-[300px] text-xl p-2 rounded-md text-black border-[1px] border-black"
-                label="Email"
+                label="Email✉️"
                 type="email"
                 placeholder="pavansohith@example.com"
                 onChange={(e) => {
@@ -76,7 +82,7 @@ export const Signin = () => {
 
               <LabelledInput
                 className="w-[300px] text-xl p-2 rounded-md border-[1px] border-black"
-                label="Password"
+                label="Password🔒"
                 type="password"
                 onChange={(e) => {
                   setInputs({ ...inputs, password: e.target.value });
@@ -84,7 +90,7 @@ export const Signin = () => {
               />
 
               <SignButton onClick={sendRequest} type="Signin" isLoggedIn={isLoggedIn} />
-              <p className="text-slate-900 mt-4">
+              <p className="text-slate-900 mt-4 mb-2">
                 New to Blogger?
                 <Link className="underline" to={"/signup"}>
                   Signup
@@ -92,6 +98,7 @@ export const Signin = () => {
               </p>
             </div>
           </div>
+        </div>
         </div>
   );
 };
