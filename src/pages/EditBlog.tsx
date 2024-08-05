@@ -2,7 +2,7 @@ import { useSetRecoilState } from "recoil";
 import { AppBar } from "../components/AppBar";
 import { publishMessageAtom } from "../atomes";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { json, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useBlog } from "../hooks";
@@ -35,7 +35,9 @@ export function EditBlog() {
 
       navigate(`/blog/${response.data.id}`);
       setPublishmsg(response.data.msg);
-    } catch (e) {}
+    } catch (e) {
+    return json({msg: "Error editing the blog"})
+    }
   }
   return (
     <div>

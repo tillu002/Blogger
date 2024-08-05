@@ -12,6 +12,8 @@ interface Blog {
     bio?: string;
   };
   uid: string;
+  Likes: number;
+  likedByUser: boolean;
 }
 
 export function useBlogs() {

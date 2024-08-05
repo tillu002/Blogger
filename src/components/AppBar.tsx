@@ -34,18 +34,18 @@ export function AppBar() {
   }
   return (
     <div
-      className={`flex px-10 justify-between border-b border-blue-200 items-center mb-3 l:px-5 sm:ml-3 place-items-center ${
+      className={`flex sticky top-0 z-50 opacity-95 bg-white  px-10 justify-between border-b border-blue-200 shadow-md shadow-slate-400 items-center mb-3 l:px-5 sm:ml-3 place-items-center ${
         isClicked ? "py-3" : "py-3"
       }`}
     >
-      <div className="flex" id="blogger-title">
+      <Link className="flex cursor-pointer" id="blogger-title" to={"/"}>
         <img
           src="icons8-blogger-100.png"
-          className="w-[45px]"
+          className="w-[45px] cursor-pointer"
           id="blogger-icon"
         />
-        <div className="text-3xl ml-2">Blogger</div>
-      </div>
+        <div className="text-3xl ml-2 cursor-pointer">Blogger</div>
+      </Link>
       <div className="flex gap-3 items-center justify-center">
         <Link to={"/publish"}>
           <AddButton />
@@ -70,11 +70,12 @@ function ExtendAvatar() {
   );
 }
 
-function Avatar({ authorName }: any) {
+export function Avatar({ authorName }: any) {
+
   if (authorName && authorName.length > 0) {
     return (
       <div className="flex justify-center rounded-full w-5 h-5 bg-black text-white p-4 items-center">
-        {authorName[0] + authorName.split(" ")[1][0]}
+        {authorName[0]}
       </div>
     );
   } else {

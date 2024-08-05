@@ -14,7 +14,7 @@ export const MyProfile = () => {
 
 function ProfileCard() {
   const navigate = useNavigate();
-  const [uName, setUName] = useState();
+  const [uName, setUName] = useState("");
   const [bio, setBio] = useState();
 
   useEffect(() => {
@@ -32,9 +32,10 @@ function ProfileCard() {
 
   return (
     <div className="mt-4">
-      <div className="group before:hover:scale-95  before:hover:w-80 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-sky-200 via-orange-200 to-orange-700 before:absolute before:top-0 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden w-[350px]">
+      <div className="group before:hover:scale-95  before:hover:w-80 before:hover:h-44 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-sky-200 via-orange-200 to-orange-700 before:absolute before:top-0 h-80 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden w-[350px] border-2 border-slate-300 ">
+      <div className="absolute top-0 left-0 w-full h-[43%] bg-blue-400"></div>
         <div className="w-28 h-28 bg-blue-700 mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500 flex items-center justify-center">
-          <Avatar2 uName={uName} />
+          <div className="w-full h-full flex justify-center items-center text-5xl text-white font-bold">{uName.split("")[0]}</div>
         </div>
         <div className="z-10  group-hover:-translate-y-10 transition-all duration-500">
           <span className="text-2xl font-semibold">{uName}</span>
@@ -54,15 +55,6 @@ function ProfileCard() {
   );
 }
 
-function Avatar2({ uName }: any) {
-  if (uName && uName.length > 0) {
-    return (
-      <div className="text-6xl">{uName[0] + uName.split(" ")[1][0] || ""}</div>
-    );
-  } else {
-    return;
-  }
-}
 
 function Naming() {
   return (

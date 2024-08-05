@@ -12,8 +12,8 @@ export const ProfileComponents = () => {
   }
 
   return (
-    <div className="flex items-center gap-2 flex-col">
-      <button className="relative inline-flex items-center justify-center gap-2 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white hover:bg-[#F5F5F5] h-9 rounded-md px-5 group mt-3">
+    <div className="flex items-center gap-2 flex-col z-50">
+      <button className="relative inline-flex items-center justify-center gap-2 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white hover:bg-[#F5F5F5] h-9 rounded-md px-5 group mt-3 z-50">
         <svg
           className="lucide lucide-arrow-left"
           strokeLinejoin="round"

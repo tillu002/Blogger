@@ -43,6 +43,8 @@ export const MyBlogs = () => {
                   date={blog.createdAt}
                   key={blog.id}
                   route={String(blog.id)}
+                  Likes={blog.Likes}
+                  id={String(blog.id)}
                 >
                 </BlogCard>
                 <article className="absolute top-2 right-2">
