@@ -9,27 +9,27 @@ import { MyBlogs } from "./pages/MyBlogs";
 import { MyProfile } from "./pages/MyProfile";
 import { EditBlog } from "./pages/EditBlog";
 import { RecoilRoot } from "recoil";
-import PullToRefresh from 'react-pull-to-refresh';
-import { useCallback } from 'react';
+// import PullToRefresh from 'react-pull-to-refresh';
+// import { useCallback } from 'react';
 
 function App() {
-  const handleRefresh = useCallback((): Promise<void> => {
-    return new Promise<void>((resolve) => {
-      // Simulate a refresh by reloading the page
-      window.location.reload();
-      resolve();
-    });
-  }, []);
+  // const handleRefresh = useCallback((): Promise<void> => {
+  //   return new Promise<void>((resolve) => {
+  //     // Simulate a refresh by reloading the page
+  //     window.location.reload();
+  //     resolve();
+  //   });
+  // }, []);
 
   return (
     <>
       <RecoilRoot>
         <BrowserRouter basename="/">
-          <PullToRefresh
+          {/* <PullToRefresh
             onRefresh={handleRefresh}
             className="overflow-y-auto h-screen"
             style={{ WebkitOverflowScrolling: 'touch' }}
-          >
+          > */}
             <Routes>
               <Route path="/signup" element={<Signup />} />
               <Route path="/" element={<Signin />} />
@@ -40,7 +40,7 @@ function App() {
               <Route path="/me" element={<MyProfile />} />
               <Route path="/blog/edit/:id" element={<EditBlog />} />
             </Routes>
-          </PullToRefresh>
+          {/* </PullToRefresh> */}
         </BrowserRouter>
       </RecoilRoot>
     </>
