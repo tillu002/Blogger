@@ -16,8 +16,11 @@ export const MyBlogs = () => {
 
   if (loading) {
     return (
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full h-full flex justify-center items-center mt-[20%] flex-col">
         <Skeleton />
+        <Skeleton />
+        <Skeleton />
+
       </div>
     );
   }
