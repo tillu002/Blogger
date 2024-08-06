@@ -5,7 +5,7 @@ interface PopUpProps {
 
 export function PopUp({ onCancel, onDelete }: PopUpProps) {
   return (
-    <article className="w-[100%] h-[100%] flex top-[50%] absolute left-[45%] sm:left-[15%] z-50">
+    <article className="w-[100%] h-[100%] flex top-[50%] fixed left-[45%] sm:left-[15%] z-50">
       <div className="card">
         <div className="card-content">
           <p className="card-heading">Delete Blog?</p>
