@@ -11,17 +11,16 @@ export function Blogs() {
   if (loading) {
     return (
       <div>
-      <AppBar />
-      <div className="w-full h-screen items-center flex justify-center">
-        <CubeLoader />
+        <AppBar />
+        <div className="w-full h-screen items-center flex justify-center">
+          <CubeLoader />
         </div>
-        </div>
+      </div>
     );
   }
   return (
     <React.Fragment>
             <AppBar />
-
       <div className="flex flex-col justify-center items-center l:mt-8 z-20 mr-3">
         {blogs.map((blog) => (
           <BlogCard
@@ -40,3 +39,4 @@ export function Blogs() {
     </React.Fragment>
   );
 }
+

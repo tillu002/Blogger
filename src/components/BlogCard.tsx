@@ -5,7 +5,6 @@ import { Skeleton } from "./Skeleton";
 import { LikeButton } from "./Utils";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
-import React from 'react';
 
 export function BlogCard({
   title,
@@ -24,10 +23,10 @@ export function BlogCard({
 
 
   return (
-    <React.Fragment>
+    <article>
       <div
         id="blogcard"
-        className="flex flex-col bg-slate-200 w-[700px] overflow-auto h-auto justify-center pl-3 border-b border-slate-400 pt-3 mb-3 pb-3 cursor-pointer md:w-[450px] l:w-[620px] sm:w-[300px] sm:ml-40 s:ml-4 sm:h-auto relative"
+        className="flex flex-col bg-slate-200 w-[700px] overflow-auto h-auto justify-center pl-3 border-b border-slate-400 pt-3 mb-3 pb-3 cursor-pointer md:w-[450px] l:w-[620px] sm:w-[300px] sm:ml-40 s:ml-4 sm:h-auto relative rounded-md"
       >
         <Link to={`/blog/${route}`}>
         <div className="flex overflow-auto items-center gap-2 s:gap-1 s:flex-col">
@@ -77,7 +76,7 @@ export function BlogCard({
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </article>
   );
 }
 

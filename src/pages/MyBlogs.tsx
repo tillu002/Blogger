@@ -60,7 +60,7 @@ export const MyBlogs = () => {
   return (
     <div>
       <AppBar />
-      <div className="flex flex-col justify-center items-center mt-4 overflow-x-hidden">
+      <div className="flex flex-col justify-center items-center mt-4 overflow-x-hidden relative">
         <BlogsButton />
         <div
           id="myblogs"
