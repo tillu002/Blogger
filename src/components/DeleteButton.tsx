@@ -1,8 +1,7 @@
-interface Delete {
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+import { ClickProps } from "./SignButton";
 
-export function DeleteBlog({ onClick }: Delete) {
+
+export function DeleteBlog({ onClick }: ClickProps) {
   return (
     <div>
 <button className="bin-button" onClick={onClick} id="deleteButton">

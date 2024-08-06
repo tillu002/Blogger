@@ -24,3 +24,7 @@ interface Sign {
   type: string;
   isLoggedIn: boolean;
 }
+
+export interface ClickProps {
+onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}

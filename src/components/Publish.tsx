@@ -25,7 +25,9 @@ export const Publish = () => {
 
       navigate(`/blog/${response.data.id}`);
       setPublishmsg(response.data.msg);
-    } catch (e) {}
+    } catch (e) {
+      setPublishmsg("Error while publishing. Try again!!")
+    }
   }
   return (
     <div>

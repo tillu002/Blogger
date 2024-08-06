@@ -3,6 +3,7 @@ import { AppBar } from "./AppBar";
 import { BlogCard } from "./BlogCard";
 import { Skeleton } from "./Skeleton";
 import { CubeLoader } from "./Utils";
+import React from 'react';
 
 export function Blogs() {
   const { loading, blogs } = useBlogs();
@@ -10,20 +11,16 @@ export function Blogs() {
   if (loading) {
     return (
       <div>
-              <AppBar />
-
+      <AppBar />
       <div className="w-full h-screen items-center flex justify-center">
-      
         <CubeLoader />
         </div>
         </div>
     );
   }
   return (
-    <div>
+    <React.Fragment>
             <AppBar />
-
-            <div className="text-xl text-center h-4 w-full flex justify-center mb-4 items-center">Pull to refresh <DownArrow /> </div>
 
       <div className="flex flex-col justify-center items-center l:mt-8 z-20 mr-3">
         {blogs.map((blog) => (
@@ -40,14 +37,6 @@ export function Blogs() {
         ))}
               {loading ? <Skeleton />: <article  className="text-lg mb-3 font-semibold">You're upto date✔️</article>}
       </div>
-    </div>
+    </React.Fragment>
   );
-}
-
-
-function DownArrow() {
-  return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-</svg>
-
 }

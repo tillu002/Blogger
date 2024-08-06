@@ -52,7 +52,7 @@ export function AppBar() {
         </Link>
         <ExitButton onClick={handleHome} />
         <a onClick={handleClick} className="w-[30px] h-[30px] cursor-pointer">
-          <Avatar authorName={uName} />
+          <Avatar authorName={uName || ""} />
           <div className={`${toggle}`}>
             <ExtendAvatar />
           </div>
@@ -70,7 +70,11 @@ function ExtendAvatar() {
   );
 }
 
-export function Avatar({ authorName }: any) {
+type AvatarProps = {
+  authorName: string;
+};
+
+export function Avatar({ authorName }: AvatarProps) {
 
   if (authorName && authorName.length > 0) {
     return (

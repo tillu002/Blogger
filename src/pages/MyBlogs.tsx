@@ -7,12 +7,45 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 import { EditButton } from "../components/EditButton";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { PopUp } from "../components/PopUp";
 
 export const MyBlogs = () => {
-  // const { uid = useRecoilValue(userIdAtom) } = useParams();
   const { loading, myBlogs } = useGetblog();
   const navigate = useNavigate();
+  const [deleteMsg, setDeleteMsg] = useState(false);
+  const [selectedBlogId, setSelectedBlogId] = useState<number | null>(null);
 
+  const handleDeleteClick = (id: number) => {
+    setSelectedBlogId(id);
+    setDeleteMsg(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (selectedBlogId !== null) {
+      try {
+        const res = await axios.delete(
+          `${BACKEND_URL}/api/v1/blog/myBlogs/${selectedBlogId}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        if (res) {
+          location.reload();
+        }
+      } catch (error) {
+        console.error("Error deleting the blog", error);
+      }
+    }
+    setDeleteMsg(false);
+  };
+
+  const handleCancelDelete = () => {
+    setDeleteMsg(false);
+    setSelectedBlogId(null);
+  };
 
   if (loading) {
     return (
@@ -20,7 +53,6 @@ export const MyBlogs = () => {
         <Skeleton />
         <Skeleton />
         <Skeleton />
-
       </div>
     );
   }
@@ -30,7 +62,6 @@ export const MyBlogs = () => {
       <AppBar />
       <div className="flex flex-col justify-center items-center mt-4 overflow-x-hidden">
         <BlogsButton />
-
         <div
           id="myblogs"
           className="m:w-[600px] w-[800px] overflow-auto p-10  section flex flex-col justify-center items-center"
@@ -39,43 +70,28 @@ export const MyBlogs = () => {
             myBlogs.map((blog) => (
               <div key={blog.id}>
                 <article className="relative">
-                <BlogCard
-                  title={blog.title}
-                  content={blog.content}
-                  authorName={blog.author.name}
-                  date={blog.createdAt}
-                  key={blog.id}
-                  route={String(blog.id)}
-                  Likes={blog.Likes}
-                  id={String(blog.id)}
-                >
-                </BlogCard>
-                <article className="absolute top-2 right-2">
-                <EditButton  onClick={() => {
-                    navigate(`/blog/edit/${blog.id}`);
-                  }}/>
+                  <BlogCard
+                    title={blog.title}
+                    content={blog.content}
+                    authorName={blog.author.name}
+                    date={blog.createdAt}
+                    key={blog.id}
+                    route={String(blog.id)}
+                    Likes={blog.Likes}
+                    id={String(blog.id)}
+                  />
+                  <article className="absolute top-2 right-2">
+                    <EditButton
+                      onClick={() => {
+                        navigate(`/blog/edit/${blog.id}`);
+                      }}
+                    />
                   </article>
-
-                <article className="absolute bottom-4 right-2">
-                <DeleteBlog
-                  onClick={async () => {
-                    const res = await axios.delete(
-                      `${BACKEND_URL}/api/v1/blog/myBlogs/${blog.id}`,
-                      {
-                        headers: {
-                          Authorization: localStorage.getItem("token"),
-                        },
-                      }
-                    );
-                    location.reload()
-
-
-                    if (res) {
-                      console.log("Blog deleted successfully");
-                    }
-                  }}
-                />
-                </article>
+                  <article className="absolute bottom-4 right-2">
+                    <DeleteBlog
+                      onClick={() => handleDeleteClick(blog.id)}
+                    />
+                  </article>
                 </article>
               </div>
             ))
@@ -90,7 +106,14 @@ export const MyBlogs = () => {
         </div>
       </div>
       <p className="text-center mb-2 text-lg font-medium">You have reached the end...😀</p>
-
+      <div className="w-full h-full flex justify-center items-center">
+        {deleteMsg && (
+          <PopUp
+            onDelete={handleConfirmDelete}
+            onCancel={handleCancelDelete}
+          />
+        )}
+      </div>
     </div>
   );
 };
