@@ -73,7 +73,7 @@ export const Signup = () => {
       <LabelledInput
               className="w-[300px] text-xl  p-2 rounded-md border-2 border-black"
               label="Username👤"
-              placeholder="e.g: Pavan Tillu"
+              placeholder="e.g: John Doe"
               onChange={(e) => {
                 setInputs({ ...inputs, name: e.target.value });
               }}
