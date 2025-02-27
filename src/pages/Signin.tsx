@@ -74,7 +74,7 @@ export const Signin = () => {
                 className="w-[300px] text-xl p-2 rounded-md text-black border-[1px] border-black"
                 label="Email✉️"
                 type="email"
-                placeholder="pavansohith@example.com"
+                placeholder="johndoe@example.com"
                 onChange={(e) => {
                   setInputs({ ...inputs, username: e.target.value });
                 }}
